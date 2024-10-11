@@ -1,5 +1,5 @@
 # Base image
-FROM python:3.10-slim-bullseye as base
+FROM python:3.12.7-slim-bullseye as base
 ENV VIRTUAL_ENV=/opt/venv
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
@@ -11,7 +11,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # Customize base image with agent deps
-FROM python:3.10-slim-bullseye as agent_deps
+FROM python:3.12.7-slim-bullseye as agent_deps
 ARG AUTHOR=user
 
 ENV VIRTUAL_ENV=/opt/venv
